@@ -19,6 +19,10 @@ namespace DifferentialEquationCalculator
         public Form1(MathFunction func)
         {
             InitializeComponent();
+            x0TextBox.Text = "0";
+            y0TextBox.Text = "5";
+            xnTextBox.Text = "10";
+            hTextBox.Text = "0,001";
             _vm = new DifferentialEquationCalculatorViewModel(func);
         }
 
@@ -29,13 +33,13 @@ namespace DifferentialEquationCalculator
             float xn = (float) Convert.ToDouble(xnTextBox.Text);
             float step = (float) Convert.ToDouble(hTextBox.Text);
 
-            BuildPlot(_vm.SolveEulerMethod(x0, xn, y0, step), "Метод Эйлера", ChartDashStyle.Solid, Color.Black, 21);
-            BuildPlot(_vm.SolvePredicterCorrecterEulerMethod(x0, xn, y0, step), "Метод Эйлера исп.", ChartDashStyle.Solid, Color.Yellow, 18); 
-            BuildPlot(_vm.SolveModifiedEulerMethod(x0, xn, y0, step), "Метод Эйлера мод.", ChartDashStyle.Solid, Color.Green, 15); 
-            BuildPlot(_vm.SolveRungeKuttaMethod(x0, xn, y0, step), "Метод Рунге-Кутта", ChartDashStyle.Solid, Color.Red, 12); 
-            BuildPlot(_vm.SolveRungeKuttaMersonMethod(x0, xn, y0, step), "Метод Рунге-Кутта-Мерсон", ChartDashStyle.Solid, Color.Blue, 9); 
+            BuildPlot(_vm.SolveRungeKuttaMersonMethod(x0, xn, y0, step), "Метод Рунге-Кутта-Мерсон", ChartDashStyle.Solid, Color.Blue, 26);
+            BuildPlot(_vm.SolvePredicterCorrecterEulerMethod(x0, xn, y0, step), "Метод Эйлера исп.", ChartDashStyle.Solid, Color.Yellow, 22); 
+            BuildPlot(_vm.SolveModifiedEulerMethod(x0, xn, y0, step), "Метод Эйлера мод.", ChartDashStyle.Solid, Color.Green, 18); 
+            BuildPlot(_vm.SolveRungeKuttaMethod(x0, xn, y0, step), "Метод Рунге-Кутта", ChartDashStyle.Solid, Color.Red, 14);
+            BuildPlot(_vm.SolveEulerMethod(x0, xn, y0, step), "Метод Эйлера", ChartDashStyle.Solid, Color.Black, 10);
             BuildPlot(_vm.SolveAdamsMethod(x0, xn, y0, step), "Метод Адамса", ChartDashStyle.Solid, Color.Pink, 6); 
-            BuildPlot(_vm.SolvePrecise(x0, xn, y0, step), "Теор. реш.", ChartDashStyle.Solid, Color.Orange, 3); 
+            BuildPlot(_vm.SolvePrecise(x0, xn, y0, step), "Теор. реш.", ChartDashStyle.Solid, Color.Orange, 2); 
         }
 
         private void BuildPlot(Point<float>[] points, string name, ChartDashStyle style, Color color,
@@ -49,7 +53,7 @@ namespace DifferentialEquationCalculator
             chart.Series.FindByName(name).MarkerSize = borderWidth;
 
 
-            for (int i = 0; i < points.Length - 1; i++)
+            for (int i = 0; i < points.Length - 1; i += 10)
                 chart.Series.FindByName(name).Points.AddXY(points[i].X, points[i].Y);
         }
         private void BuildPlot(List<Point<float>> points, string name, ChartDashStyle style, Color color,
