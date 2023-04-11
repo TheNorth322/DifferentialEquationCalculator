@@ -16,16 +16,16 @@ namespace DifferentialEquationCalculator
             _mathFunction = mathFunction;
         }
 
-        public Point[] Solve(float left_border, float right_border, float y0, float step)
+        public Point<float>[] Solve(float left_border, float right_border, float y0, float step)
         {
             int index = 1;
-            Point[] points = new Point[Convert.ToInt32((right_border - left_border) / step)];
+            Point<float>[] points = new Point<float>[Convert.ToInt32((right_border - left_border) / step)];
 
-            points[0] = new Point(left_border, y0);
+            points[0] = new Point<float>(left_border, y0);
 
             for (left_border += step; left_border <= right_border; left_border += step)
             {
-                points[index] = new Point(left_border, points[index - 1].Y + step * _mathFunction.Calculate(left_border, points[index - 1].Y));
+                points[index] = new Point<float>(left_border, points[index - 1].Y + step * _mathFunction.Calculate(left_border, points[index - 1].Y));
                 index++;
             }
 

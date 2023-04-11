@@ -14,7 +14,7 @@ namespace DifferentialEquationCalculator.Model
         {
             _function = function;
         }
-
+        
         public float Calculate(float x, float y)
         {
             return _function(x, y);

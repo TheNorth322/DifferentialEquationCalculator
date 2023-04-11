@@ -15,14 +15,15 @@ namespace DifferentialEquationCalculator
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
 
             float Function(float x, float y) => (float) Math.Sin(x) - 2 * y;
             MathFunction mathFunction = new MathFunction(Function);
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1(mathFunction));
             AdamsMethod eulerMethod = new AdamsMethod(mathFunction);
-            Point[] result = eulerMethod.Solve(0, 10, 5, 0.001f);
+            Point<float>[] result = eulerMethod.Solve(0, 10, 5, 0.001f);
         }
     }
 }

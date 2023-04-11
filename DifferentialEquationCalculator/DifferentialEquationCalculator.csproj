@@ -54,6 +54,7 @@
     <Compile Include="Model\AdamsMethod.cs" />
     <Compile Include="Model\EulerMethod.cs" />
     <Compile Include="Model\MathFunction.cs" />
+    <Compile Include="Model\MathFunctionVisualizer.cs" />
     <Compile Include="Model\ModifiedEulerMethod.cs" />
     <Compile Include="Model\PredicterCorrecterEulerMethod.cs" />
     <Compile Include="Model\Point.cs" />

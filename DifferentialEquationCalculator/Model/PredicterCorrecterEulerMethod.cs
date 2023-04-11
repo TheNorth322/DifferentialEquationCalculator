@@ -15,18 +15,18 @@ namespace DifferentialEquationCalculator.Model
             _mathFunction = mathFunction;
         }
 
-        public Point[] Solve(float left_border, float right_border, float y0, float step)
+        public Point<float>[] Solve(float left_border, float right_border, float y0, float step)
         {
             int index = 1;
-            Point[] points = new Point[Convert.ToInt32((right_border - left_border) / step)];
+            Point<float>[] points = new Point<float>[Convert.ToInt32((right_border - left_border) / step)];
 
-            points[0] = new Point(left_border, y0);
+            points[0] = new Point<float>(left_border, y0);
 
             for (left_border += step; left_border <= right_border; left_border += step)
             {
                 float xn = points[index - 1].X, yn = points[index - 1].Y;
                 float f = (_mathFunction.Calculate(xn, yn) + _mathFunction.Calculate(xn + step, yn + step * _mathFunction.Calculate(xn, yn))) / 2;
-                points[index] = new Point(left_border, points[index - 1].Y + step * f);
+                points[index] = new Point<float>(left_border, points[index - 1].Y + step * f);
                 index++;
             }
 

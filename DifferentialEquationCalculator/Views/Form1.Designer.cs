@@ -40,6 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.xnTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             this.chart.Series.Add(series1);
             this.chart.Size = new System.Drawing.Size(529, 426);
             this.chart.TabIndex = 0;
-            this.chart.Text = "chart1";
+            this.chart.Text = "chart";
             // 
             // x0TextBox
             // 
@@ -126,11 +128,29 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Решение дифференциальных уравнений";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(601, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(18, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "xn";
+            // 
+            // xnTextBox
+            // 
+            this.xnTextBox.Location = new System.Drawing.Point(654, 109);
+            this.xnTextBox.Name = "xnTextBox";
+            this.xnTextBox.Size = new System.Drawing.Size(100, 20);
+            this.xnTextBox.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.xnTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -159,6 +179,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox xnTextBox;
     }
 }
 

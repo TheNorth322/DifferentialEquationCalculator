@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DifferentialEquationCalculator.Model
 {
-    public struct Point
+    public struct Point<T>
     {
-        public float X;
-        public float Y;
+        public T X;
+        public T Y;
 
-        public Point(float x, float y)
+        public Point(T x, T y)
         {
             X = x;
             Y = y;

@@ -15,10 +15,10 @@ namespace DifferentialEquationCalculator.Model
             _mathFunction = mathFunction;
         }
 
-        public List<Point> Solve(float left_border, float right_border, float y0, float step, float epsilon)
+        public List<Point<float>> Solve(float left_border, float right_border, float y0, float step, float epsilon)
         {
-            List<Point> points = new List<Point>();
-            points.Add(new Point(left_border, y0));
+            List<Point<float>> points = new List<Point<float>>();
+            points.Add(new Point<float>(left_border, y0));
             left_border += step;
             while (left_border <= right_border)
             {
@@ -37,7 +37,7 @@ namespace DifferentialEquationCalculator.Model
                     continue;
                 }
                 
-                points.Add(new Point(left_border, yn + k1 / 6.0f + 2 * k4 / 3.0f + k5 / 6.0f));
+                points.Add(new Point<float>(left_border, yn + k1 / 6.0f + 2 * k4 / 3.0f + k5 / 6.0f));
                 if (Math.Abs(localError) <= epsilon / 32)
                     step *= 2;
 
